@@ -91,9 +91,12 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold text-navy-900">
+              <Link
+                href="/"
+                className="text-xl sm:text-2xl font-bold text-navy-900"
+              >
                 <span className="text-amber-600">ETC</span>
-                <span className="text-slate-800 ml-2 text-lg font-normal">
+                <span className="text-slate-800 ml-2 text-sm sm:text-lg font-normal hidden sm:inline">
                   Elevated Travel Corporation
                 </span>
               </Link>
@@ -196,10 +199,10 @@ export default function About() {
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-amber-900/80"></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6">
             About <span className="text-amber-400">ETC</span>
           </h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-gray-200 max-w-3xl mx-auto px-4">
             Your trusted partner in luxury travel since 2010, creating
             unforgettable experiences around the world.
           </p>

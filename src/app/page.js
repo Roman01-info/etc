@@ -117,9 +117,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-navy-900">
+              <h1 className="text-xl sm:text-2xl font-bold text-navy-900">
                 <span className="text-amber-600">ETC</span>
-                <span className="text-slate-800 ml-2 text-lg font-normal">
+                <span className="text-slate-800 ml-2 text-sm sm:text-lg font-normal hidden sm:inline">
                   Elevated Travel Corporation
                 </span>
               </h1>
@@ -213,11 +213,11 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-4 sm:mb-6 animate-fade-in">
             Elevate Your Journey with{" "}
             <span className="text-amber-400">ETC</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-200 mb-12 animate-fade-in-delay">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-12 animate-fade-in-delay">
             Luxury travel experiences curated just for you.
           </p>
           <button
@@ -226,7 +226,7 @@ export default function Home() {
                 .getElementById("destinations")
                 .scrollIntoView({ behavior: "smooth" })
             }
-            className="bg-amber-600 text-white px-10 py-4 rounded-full text-lg font-semibold hover:bg-amber-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="bg-amber-600 text-white px-6 sm:px-10 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-amber-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Explore Destinations
             <ChevronRight className="inline ml-2" size={20} />
@@ -241,26 +241,26 @@ export default function Home() {
       </section>
 
       {/* Popular Destinations Section */}
-      <section id="destinations" className="py-20 bg-slate-50">
+      <section id="destinations" className="py-12 sm:py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             id="destinations-header"
-            className={`text-center mb-16 transition-all duration-700 ${
+            className={`text-center mb-8 sm:mb-16 transition-all duration-700 ${
               isVisible["destinations-header"]
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4">
               Popular Destinations
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto px-4">
               Discover our most sought-after luxury destinations, handpicked for
               unforgettable experiences.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
             {destinations.map((dest, index) => (
               <div
                 key={index}
@@ -272,7 +272,7 @@ export default function Home() {
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-48 sm:h-64 overflow-hidden">
                   <img
                     src={dest.image}
                     alt={dest.name}
@@ -287,22 +287,22 @@ export default function Home() {
                     <span className="text-sm font-semibold">{dest.rating}</span>
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                   <div className="flex items-center mb-2">
                     <MapPin className="text-amber-600 mr-2" size={18} />
-                    <h3 className="text-2xl font-bold text-slate-800">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-800">
                       {dest.name}
                     </h3>
                   </div>
-                  <p className="text-3xl font-bold text-amber-600 mb-4">
+                  <p className="text-2xl sm:text-3xl font-bold text-amber-600 mb-3 sm:mb-4">
                     {dest.price}
                   </p>
-                  <p className="text-sm text-slate-600 mb-4">
+                  <p className="text-xs sm:text-sm text-slate-600 mb-3 sm:mb-4">
                     per person, all inclusive
                   </p>
                   <button
                     onClick={() => handleBookNow(dest.name)}
-                    className="w-full bg-slate-800 text-white py-3 rounded-lg hover:bg-amber-600 transition-colors duration-300 font-semibold"
+                    className="w-full bg-slate-800 text-white py-2 sm:py-3 rounded-lg hover:bg-amber-600 transition-colors duration-300 font-semibold text-sm sm:text-base"
                   >
                     Book Now
                   </button>
@@ -314,43 +314,43 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-white">
+      <section id="services" className="py-12 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             id="services-header"
-            className={`text-center mb-16 transition-all duration-700 ${
+            className={`text-center mb-8 sm:mb-16 transition-all duration-700 ${
               isVisible["services-header"]
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4">
               Our Services
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto px-4">
               Comprehensive travel solutions tailored to your every need.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
             {services.map((service, index) => (
               <div
                 key={index}
                 id={`service-${index}`}
-                className={`bg-gradient-to-br from-slate-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-slate-100 ${
+                className={`bg-gradient-to-br from-slate-50 to-white p-4 sm:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-slate-100 ${
                   isVisible[`service-${index}`]
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div className="bg-amber-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
-                  <service.icon className="text-white" size={32} />
+                <div className="bg-amber-600 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-4 sm:mb-6 mx-auto">
+                  <service.icon className="text-white" size={24} />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-4 text-center">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-3 sm:mb-4 text-center">
                   {service.title}
                 </h3>
-                <p className="text-slate-600 text-center leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-600 text-center leading-relaxed">
                   {service.description}
                 </p>
               </div>
@@ -360,9 +360,9 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section id="about" className="py-20 bg-slate-900">
+      <section id="about" className="py-12 sm:py-20 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div
               id="about-text"
               className={`transition-all duration-700 ${
@@ -371,24 +371,26 @@ export default function Home() {
                   : "opacity-0 -translate-x-10"
               }`}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
                 Why Choose ETC?
               </h2>
-              <p className="text-lg text-gray-300 mb-8">
+              <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8">
                 With over a decade of excellence in luxury travel, we deliver
                 experiences that exceed expectations.
               </p>
-              <ul className="space-y-4">
+              <ul className="space-y-3 sm:space-y-4">
                 {whyChooseUs.map((item, index) => (
                   <li key={index} className="flex items-start">
-                    <div className="bg-amber-600 rounded-full p-1 mr-4 mt-1 flex-shrink-0">
+                    <div className="bg-amber-600 rounded-full p-1 mr-3 sm:mr-4 mt-1 flex-shrink-0">
                       <Star
                         className="text-white"
                         size={16}
                         fill="currentColor"
                       />
                     </div>
-                    <span className="text-gray-200 text-lg">{item}</span>
+                    <span className="text-gray-200 text-sm sm:text-lg">
+                      {item}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -413,15 +415,15 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-slate-950 text-white py-16">
+      <footer id="contact" className="bg-slate-950 text-white py-8 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
             {/* Company Info */}
             <div>
-              <h3 className="text-2xl font-bold mb-4">
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
                 <span className="text-amber-500">ETC</span>
               </h3>
-              <p className="text-gray-400 mb-4">
+              <p className="text-sm sm:text-base text-gray-400 mb-3 sm:mb-4">
                 Elevated Travel Corporation - Your partner in luxury travel
                 experiences since 2010.
               </p>
@@ -455,8 +457,10 @@ export default function Home() {
 
             {/* Contact Info */}
             <div>
-              <h4 className="text-xl font-semibold mb-4">Contact Us</h4>
-              <div className="space-y-3 text-gray-400">
+              <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+                Contact Us
+              </h4>
+              <div className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-400">
                 <p>📞 +1 (555) 123-4567</p>
                 <p>✉️ info@etctravel.com</p>
                 <p>📍 123 Luxury Avenue, New York, NY 10001</p>
@@ -465,8 +469,10 @@ export default function Home() {
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-gray-400">
+              <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+                Quick Links
+              </h4>
+              <ul className="space-y-2 text-sm sm:text-base text-gray-400">
                 <li>
                   <Link
                     href="/services"
@@ -496,8 +502,10 @@ export default function Home() {
 
             {/* Newsletter */}
             <div>
-              <h4 className="text-xl font-semibold mb-4">Newsletter</h4>
-              <p className="text-gray-400 mb-4">
+              <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+                Newsletter
+              </h4>
+              <p className="text-sm sm:text-base text-gray-400 mb-3 sm:mb-4">
                 Subscribe for exclusive deals and travel inspiration.
               </p>
               <form
