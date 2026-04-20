@@ -66,10 +66,9 @@ export default function About() {
 
   const team = [
     {
-      name: "Sarah Johnson",
+      name: "Md Biplob",
       role: "Founder & CEO",
-      image:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
+      image: "/b-img.png",
     },
     {
       name: "Michael Chen",
@@ -186,8 +185,17 @@ export default function About() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-slate-900 via-slate-800 to-amber-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative pt-32 pb-32 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url(https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&h=1080&fit=crop&q=80)",
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-amber-900/80"></div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
             About <span className="text-amber-400">ETC</span>
           </h1>
@@ -267,7 +275,7 @@ export default function About() {
               }`}
             >
               <img
-                src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop"
+                src="/b-img.png"
                 alt="Luxury Travel Experience"
                 className="rounded-2xl shadow-2xl w-full h-auto"
               />

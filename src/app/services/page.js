@@ -209,8 +209,17 @@ export default function Services() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-slate-900 via-slate-800 to-amber-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative pt-32 pb-32 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url(https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1920&h=1080&fit=crop&q=80)",
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-amber-900/80"></div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
             Our <span className="text-amber-400">Premium</span> Services
           </h1>
@@ -259,13 +268,13 @@ export default function Services() {
                 </div>
                 <div className={index % 2 === 1 ? "lg:order-1" : ""}>
                   <img
-                    src={`https://images.unsplash.com/photo-${
+                    src={
                       index === 0
-                        ? "1436491865332-7a2c25d2838f"
+                        ? "https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?w=800&h=600&fit=crop&q=80"
                         : index === 1
-                        ? "1566073771259-6a8506099945"
-                        : "1553877522-43269d4ea984"
-                    }?w=800&h=600&fit=crop`}
+                        ? "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop&q=80"
+                        : "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop&q=80"
+                    }
                     alt={service.title}
                     className="rounded-2xl shadow-2xl w-full h-auto"
                   />
