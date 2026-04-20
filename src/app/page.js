@@ -55,7 +55,7 @@ export default function Home() {
       name: "Maldives",
       price: "$1,299",
       image:
-        "https://images.unsplash.com/photo-1514282401049-d791c0568398?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop&q=80",
       rating: 4.9,
     },
     {
