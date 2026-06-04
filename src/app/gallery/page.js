@@ -1,23 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import {
-  Plane,
-  Hotel,
-  Headphones,
-  MapPin,
-  Star,
-  ChevronRight,
-  Menu,
-  X,
-  CheckCircle,
-  Globe,
-  Shield,
-  CreditCard,
-} from "lucide-react";
+import { Heart, Menu, X, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
-export default function Services() {
+export default function Gallery() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState({});
 
@@ -38,75 +25,6 @@ export default function Services() {
 
     return () => observer.disconnect();
   }, []);
-
-  const services = [
-    {
-      icon: Plane,
-      title: "Flight Booking",
-      description:
-        "Access to premium flights worldwide with exclusive deals and priority boarding options. We partner with major airlines to bring you the best rates and most comfortable travel experiences.",
-      features: [
-        "First & Business Class bookings",
-        "Multi-city itineraries",
-        "Priority boarding assistance",
-        "Exclusive airline partnerships",
-        "Real-time flight tracking",
-      ],
-    },
-    {
-      icon: Hotel,
-      title: "Luxury Hotels",
-      description:
-        "Handpicked 5-star accommodations that offer unparalleled comfort and service. From boutique hotels to world-renowned resorts, we ensure your stay is nothing short of extraordinary.",
-      features: [
-        "5-star hotel partnerships",
-        "Boutique & unique stays",
-        "Complimentary upgrades",
-        "Spa & wellness packages",
-        "Personal concierge service",
-      ],
-    },
-    {
-      icon: Headphones,
-      title: "24/7 Support",
-      description:
-        "Round-the-clock assistance to ensure your journey is seamless from start to finish. Our dedicated team is always available to help with any requests or emergencies.",
-      features: [
-        "24/7 phone & chat support",
-        "Emergency assistance",
-        "Travel insurance guidance",
-        "Multi-language support",
-        "Dedicated travel advisor",
-      ],
-    },
-  ];
-
-  const additionalServices = [
-    {
-      icon: MapPin,
-      title: "Guided Tours",
-      description:
-        "Expert-led tours to the world's most fascinating destinations with personalized itineraries.",
-    },
-    {
-      icon: Globe,
-      title: "Visa Assistance",
-      description:
-        "Complete visa processing support and documentation guidance for hassle-free travel.",
-    },
-    {
-      icon: Shield,
-      title: "Travel Insurance",
-      description:
-        "Comprehensive travel insurance packages to protect your journey and give you peace of mind.",
-    },
-    {
-      icon: CreditCard,
-      title: "Flexible Payment",
-      description:
-        "Multiple payment options with flexible installment plans to make luxury travel accessible.",
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -140,7 +58,10 @@ export default function Services() {
               >
                 Destinations
               </Link>
-              <Link href="/services" className="text-amber-600 font-semibold">
+              <Link
+                href="/services"
+                className="text-slate-700 hover:text-amber-600 transition-colors"
+              >
                 Services
               </Link>
               <Link
@@ -149,10 +70,7 @@ export default function Services() {
               >
                 About
               </Link>
-              <Link
-                href="/gallery"
-                className="text-slate-700 hover:text-amber-600 transition-colors"
-              >
+              <Link href="/gallery" className="text-amber-600 font-semibold">
                 Gallery
               </Link>
               <Link
@@ -198,7 +116,7 @@ export default function Services() {
                 </Link>
                 <Link
                   href="/services"
-                  className="text-amber-600 font-semibold"
+                  className="text-slate-700 hover:text-amber-600 transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Services
@@ -212,7 +130,7 @@ export default function Services() {
                 </Link>
                 <Link
                   href="/gallery"
-                  className="text-slate-700 hover:text-amber-600 transition-colors"
+                  className="text-amber-600 font-semibold"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Gallery
@@ -243,117 +161,78 @@ export default function Services() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url(https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1920&h=1080&fit=crop&q=80)",
+              "url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&h=1080&fit=crop&q=80)",
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-amber-900/80"></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6">
-            Our <span className="text-amber-400">Premium</span> Services
+            Our World in <span className="text-amber-400">Pictures</span>
           </h1>
           <p className="text-base sm:text-xl text-gray-200 max-w-3xl mx-auto px-4">
-            Comprehensive travel solutions designed to make your journey
-            extraordinary from start to finish.
+            A collection of beautiful moments and stunning destinations curated for your inspiration.
           </p>
         </div>
       </section>
 
-      {/* Main Services */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-20">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                id={`service-${index}`}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center transition-all duration-700 ${
-                  isVisible[`service-${index}`]
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
-              >
-                <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                  <div className="bg-amber-600 w-20 h-20 rounded-full flex items-center justify-center mb-6">
-                    <service.icon className="text-white" size={40} />
-                  </div>
-                  <h2 className="text-4xl font-bold text-slate-800 mb-4">
-                    {service.title}
-                  </h2>
-                  <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-                  <ul className="space-y-3">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <CheckCircle
-                          className="text-amber-600 mr-3 mt-1 flex-shrink-0"
-                          size={20}
-                        />
-                        <span className="text-slate-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                  <img
-                    src={
-                      index === 0
-                        ? "https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?w=800&h=600&fit=crop&q=80"
-                        : index === 1
-                        ? "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop&q=80"
-                        : "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop&q=80"
-                    }
-                    alt={service.title}
-                    className="rounded-2xl shadow-2xl w-full h-auto"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Additional Services */}
-      <section className="py-20 bg-slate-50">
+      {/* Gallery Section */}
+      <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
-            id="additional-header"
+            id="gallery-header"
             className={`text-center mb-16 transition-all duration-700 ${
-              isVisible["additional-header"]
+              isVisible["gallery-header"]
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Additional Services
+            <span className="text-amber-600 font-semibold tracking-wider uppercase text-sm mb-2 block">Memories</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+              Family Tour Memories
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Complete travel support to enhance your experience.
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              Real moments from our clients exploring the world together. Sneak a peek at the joy we help create across stunning destinations.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {additionalServices.map((service, index) => (
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+            {[
+              "/gallery/etc-2.jpeg",
+              "/gallery/etc-3.jpeg",
+              "/gallery/etc-4.jpeg",
+              "/gallery/etc-6.jpeg",
+              "/gallery/etc-7.jpeg",
+              "/gallery/Biplop-1.jpeg",
+            ].map((imgSrc, index) => (
               <div
                 key={index}
-                id={`additional-${index}`}
-                className={`bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 ${
-                  isVisible[`additional-${index}`]
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                id={`gallery-img-${index}`}
+                className={`relative group overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-700 break-inside-avoid ${
+                  isVisible[`gallery-img-${index}`]
+                    ? "opacity-100 scale-100 translate-y-0"
+                    : "opacity-0 scale-95 translate-y-8"
                 }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
+                style={{ transitionDelay: `${(index % 3) * 150}ms` }}
               >
-                <div className="bg-gradient-to-br from-amber-500 to-amber-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
-                  <service.icon className="text-white" size={32} />
+                <img
+                  src={imgSrc}
+                  alt={`Memorable Tour ${index + 1}`}
+                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out bg-slate-100"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-transform duration-500">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-white font-bold text-lg mb-1">Joyful Escapes</p>
+                      <p className="text-amber-300 text-sm font-medium">Family Package</p>
+                    </div>
+                    <div className="bg-white/20 p-2.5 rounded-full backdrop-blur-md transform hover:scale-110 transition-transform">
+                      <Heart className="text-white" size={20} fill="currentColor" />
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3 text-center">
-                  {service.title}
-                </h3>
-                <p className="text-slate-600 text-center leading-relaxed">
-                  {service.description}
-                </p>
               </div>
             ))}
           </div>
@@ -364,16 +243,16 @@ export default function Services() {
       <section className="py-20 bg-gradient-to-r from-amber-600 to-amber-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Start Your Journey?
+            Want to be in our gallery?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Let us create your perfect travel experience today.
+            Book your next adventure with us and create your own unforgettable memories.
           </p>
           <Link
             href="/contact"
             className="inline-block bg-white text-amber-600 px-10 py-4 rounded-full text-lg font-semibold hover:bg-slate-100 hover:scale-105 transition-all duration-300 shadow-lg"
           >
-            Get in Touch
+            Contact Us Now
             <ChevronRight className="inline ml-2" size={20} />
           </Link>
         </div>

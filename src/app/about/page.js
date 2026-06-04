@@ -105,6 +105,12 @@ export default function About() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <Link
+                href="/"
+                className="text-slate-700 hover:text-amber-600 transition-colors"
+              >
+                Home
+              </Link>
+              <Link
                 href="/#destinations"
                 className="text-slate-700 hover:text-amber-600 transition-colors"
               >
@@ -116,8 +122,17 @@ export default function About() {
               >
                 Services
               </Link>
-              <Link href="/about" className="text-amber-600 font-semibold">
+              <Link
+                href="/about"
+                className="text-amber-600 font-semibold"
+              >
                 About
+              </Link>
+              <Link
+                href="/gallery"
+                className="text-slate-700 hover:text-amber-600 transition-colors"
+              >
+                Gallery
               </Link>
               <Link
                 href="/contact"
@@ -147,6 +162,13 @@ export default function About() {
             <div className="md:hidden py-4 border-t">
               <div className="flex flex-col space-y-4">
                 <Link
+                  href="/"
+                  className="text-slate-700 hover:text-amber-600 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Home
+                </Link>
+                <Link
                   href="/#destinations"
                   className="text-slate-700 hover:text-amber-600 transition-colors"
                   onClick={() => setIsMenuOpen(false)}
@@ -166,6 +188,13 @@ export default function About() {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   About
+                </Link>
+                <Link
+                  href="/gallery"
+                  className="text-slate-700 hover:text-amber-600 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Gallery
                 </Link>
                 <Link
                   href="/contact"
@@ -292,68 +321,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Family Tour Memories Gallery */}
-      <section className="py-24 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            id="gallery-header"
-            className={`text-center mb-16 transition-all duration-700 ${
-              isVisible["gallery-header"]
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-          >
-            <span className="text-amber-600 font-semibold tracking-wider uppercase text-sm mb-2 block">Our Gallery</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              Family Tour Memories
-            </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Real moments from our clients exploring the world together. Sneak a peek at the joy we help create across stunning destinations.
-            </p>
-          </div>
-
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-            {[
-              "/gallery/etc-2.jpeg",
-              "/gallery/etc-3.jpeg",
-              "/gallery/etc-4.jpeg",
-              "/gallery/etc-6.jpeg",
-              "/gallery/etc-7.jpeg",
-              "/gallery/Biplop-1.jpeg",
-            ].map((imgSrc, index) => (
-              <div
-                key={index}
-                id={`gallery-img-${index}`}
-                className={`relative group overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-700 break-inside-avoid ${
-                  isVisible[`gallery-img-${index}`]
-                    ? "opacity-100 scale-100 translate-y-0"
-                    : "opacity-0 scale-95 translate-y-8"
-                }`}
-                style={{ transitionDelay: `${(index % 3) * 150}ms` }}
-              >
-                <img
-                  src={imgSrc}
-                  alt={`Memorable Tour ${index + 1}`}
-                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out bg-slate-100"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-transform duration-500">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-white font-bold text-lg mb-1">Joyful Escapes</p>
-                      <p className="text-amber-300 text-sm font-medium">Family Package</p>
-                    </div>
-                    <div className="bg-white/20 p-2.5 rounded-full backdrop-blur-md transform hover:scale-110 transition-transform">
-                      <Heart className="text-white" size={20} fill="currentColor" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Our Values */}
       <section className="py-24 bg-slate-50">

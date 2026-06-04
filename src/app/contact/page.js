@@ -106,6 +106,12 @@ export default function Contact() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <Link
+                href="/"
+                className="text-slate-700 hover:text-amber-600 transition-colors"
+              >
+                Home
+              </Link>
+              <Link
                 href="/#destinations"
                 className="text-slate-700 hover:text-amber-600 transition-colors"
               >
@@ -122,6 +128,12 @@ export default function Contact() {
                 className="text-slate-700 hover:text-amber-600 transition-colors"
               >
                 About
+              </Link>
+              <Link
+                href="/gallery"
+                className="text-slate-700 hover:text-amber-600 transition-colors"
+              >
+                Gallery
               </Link>
               <Link href="/contact" className="text-amber-600 font-semibold">
                 Contact
@@ -145,6 +157,13 @@ export default function Contact() {
             <div className="md:hidden py-4 border-t">
               <div className="flex flex-col space-y-4">
                 <Link
+                  href="/"
+                  className="text-slate-700 hover:text-amber-600 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Home
+                </Link>
+                <Link
                   href="/#destinations"
                   className="text-slate-700 hover:text-amber-600 transition-colors"
                   onClick={() => setIsMenuOpen(false)}
@@ -164,6 +183,13 @@ export default function Contact() {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   About
+                </Link>
+                <Link
+                  href="/gallery"
+                  className="text-slate-700 hover:text-amber-600 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Gallery
                 </Link>
                 <Link
                   href="/contact"

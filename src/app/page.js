@@ -128,6 +128,12 @@ export default function Home() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <Link
+                href="/"
+                className="text-slate-700 hover:text-amber-600 transition-colors"
+              >
+                Home
+              </Link>
+              <Link
                 href="/services"
                 className="text-slate-700 hover:text-amber-600 transition-colors"
               >
@@ -144,6 +150,12 @@ export default function Home() {
                 className="text-slate-700 hover:text-amber-600 transition-colors"
               >
                 Contact
+              </Link>
+              <Link
+                href="/gallery"
+                className="text-slate-700 hover:text-amber-600 transition-colors"
+              >
+                Gallery
               </Link>
               <Link
                 href="/contact"
@@ -167,6 +179,13 @@ export default function Home() {
             <div className="md:hidden py-4 border-t">
               <div className="flex flex-col space-y-4">
                 <Link
+                  href="/"
+                  className="text-slate-700 hover:text-amber-600 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Home
+                </Link>
+                <Link
                   href="/services"
                   className="text-slate-700 hover:text-amber-600 transition-colors"
                   onClick={() => setIsMenuOpen(false)}
@@ -180,12 +199,20 @@ export default function Home() {
                 >
                   About
                 </Link>
+                
                 <Link
                   href="/contact"
                   className="text-slate-700 hover:text-amber-600 transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact
+                </Link>
+                <Link
+                  href="/gallery"
+                  className="text-slate-700 hover:text-amber-600 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Gallery
                 </Link>
                 <Link
                   href="/contact"
