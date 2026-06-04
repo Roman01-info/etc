@@ -461,9 +461,9 @@ export default function Home() {
                 Contact Us
               </h4>
               <div className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-400">
-                <p>📞 +1 (555) 123-4567</p>
-                <p>✉️ info@etctravel.com</p>
-                <p>📍 123 Luxury Avenue, New York, NY 10001</p>
+                <p>📞 01865-002303, 01711-025870</p>
+                <p>✉️ etctravelsme@gmail.com, biplob_wali@yahoo.com</p>
+                <p>📍 Hotel InterContinental Dhaka, Building # 3, (2nd Floor), 119 Kazi Nazrul Islam Avenue, (1, Minto Road, Dhaka-1000)</p>
               </div>
             </div>
 

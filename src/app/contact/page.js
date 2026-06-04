@@ -63,17 +63,20 @@ export default function Contact() {
     {
       icon: Phone,
       title: "Phone",
-      details: ["+1 (555) 123-4567", "+1 (555) 987-6543"],
+      details: ["01865-002303", "01711-025870"],
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["info@etctravel.com", "support@etctravel.com"],
+      details: ["etctravelsme@gmail.com", "biplob_wali@yahoo.com"],
     },
     {
       icon: MapPin,
       title: "Address",
-      details: ["123 Luxury Avenue", "New York, NY 10001"],
+      details: [
+        "Hotel InterContinental Dhaka, Building # 3, (2nd Floor)",
+        "119 Kazi Nazrul Islam Avenue, (1, Minto Road, Dhaka-1000)",
+      ],
     },
     {
       icon: Clock,
@@ -383,8 +386,8 @@ export default function Contact() {
                 <div className="bg-slate-200 rounded-xl h-80 mb-6 flex items-center justify-center">
                   <div className="text-center text-slate-600">
                     <MapPin size={48} className="mx-auto mb-4 text-amber-600" />
-                    <p className="text-lg font-semibold">123 Luxury Avenue</p>
-                    <p>New York, NY 10001</p>
+                    <p className="text-lg font-semibold">Hotel InterContinental Dhaka</p>
+                    <p>Building # 3, (2nd Floor), 119 Kazi Nazrul Islam Avenue, Dhaka-1000</p>
                   </div>
                 </div>
                 <div className="space-y-4">

@@ -66,7 +66,7 @@ export default function About() {
 
   const team = [
     {
-      name: "Md Biplob",
+      name: "Md. Waliul Hasan (Biplob)",
       role: "Founder & CEO",
       image: "/b-img.png",
     },
@@ -188,7 +188,7 @@ export default function About() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-32 overflow-hidden">
+      <section className="relative pt-32 pb-32 lg:pt-48 lg:pb-48 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -196,15 +196,17 @@ export default function About() {
               "url(https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&h=1080&fit=crop&q=80)",
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-amber-900/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-slate-900/80 to-amber-950/90"></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6">
-            About <span className="text-amber-400">ETC</span>
+          <span className="inline-block py-1 px-4 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-400 font-semibold text-xs sm:text-sm mb-6 uppercase tracking-widest backdrop-blur-sm">
+            Discover The World
+          </span>
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">
+            Elevated <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">Journeys</span>
           </h1>
-          <p className="text-base sm:text-xl text-gray-200 max-w-3xl mx-auto px-4">
-            Your trusted partner in luxury travel since 2010, creating
-            unforgettable experiences around the world.
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed px-4">
+            Your trusted partner in luxury travel since 2010. We don't just plan trips; we string together unforgettable memories.
           </p>
         </div>
       </section>
@@ -271,24 +273,90 @@ export default function About() {
             </div>
             <div
               id="story-image"
-              className={`transition-all duration-700 ${
+              className={`transition-all duration-1000 ${
                 isVisible["story-image"]
                   ? "opacity-100 translate-x-0"
-                  : "opacity-0 translate-x-10"
+                  : "opacity-0 translate-x-12"
               }`}
             >
-              <img
-                src="/b-img.png"
-                alt="Luxury Travel Experience"
-                className="rounded-2xl shadow-2xl w-full h-auto"
-              />
+              <div className="relative group">
+                <div className="absolute inset-0 bg-amber-600 rounded-2xl transform translate-x-4 translate-y-4 transition-transform duration-500 group-hover:translate-x-6 group-hover:translate-y-6"></div>
+                <img
+                  src="/gallery/etc-5.jpeg"
+                  alt="Luxury Travel Experience"
+                  className="relative rounded-2xl shadow-2xl w-full h-auto object-cover z-10 transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Family Tour Memories Gallery */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            id="gallery-header"
+            className={`text-center mb-16 transition-all duration-700 ${
+              isVisible["gallery-header"]
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            <span className="text-amber-600 font-semibold tracking-wider uppercase text-sm mb-2 block">Our Gallery</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+              Family Tour Memories
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              Real moments from our clients exploring the world together. Sneak a peek at the joy we help create across stunning destinations.
+            </p>
+          </div>
+
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+            {[
+              "/gallery/etc-2.jpeg",
+              "/gallery/etc-3.jpeg",
+              "/gallery/etc-4.jpeg",
+              "/gallery/etc-6.jpeg",
+              "/gallery/etc-7.jpeg",
+              "/gallery/Biplop-1.jpeg",
+            ].map((imgSrc, index) => (
+              <div
+                key={index}
+                id={`gallery-img-${index}`}
+                className={`relative group overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-700 break-inside-avoid ${
+                  isVisible[`gallery-img-${index}`]
+                    ? "opacity-100 scale-100 translate-y-0"
+                    : "opacity-0 scale-95 translate-y-8"
+                }`}
+                style={{ transitionDelay: `${(index % 3) * 150}ms` }}
+              >
+                <img
+                  src={imgSrc}
+                  alt={`Memorable Tour ${index + 1}`}
+                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out bg-slate-100"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-transform duration-500">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-white font-bold text-lg mb-1">Joyful Escapes</p>
+                      <p className="text-amber-300 text-sm font-medium">Family Package</p>
+                    </div>
+                    <div className="bg-white/20 p-2.5 rounded-full backdrop-blur-md transform hover:scale-110 transition-transform">
+                      <Heart className="text-white" size={20} fill="currentColor" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Our Values */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             id="values-header"
@@ -311,7 +379,7 @@ export default function About() {
               <div
                 key={index}
                 id={`value-${index}`}
-                className={`bg-gradient-to-br from-slate-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-slate-100 ${
+                className={`bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-slate-100 ${
                   isVisible[`value-${index}`]
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
@@ -334,7 +402,7 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             id="team-header"
@@ -357,18 +425,20 @@ export default function About() {
               <div
                 key={index}
                 id={`team-${index}`}
-                className={`bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 ${
+                className={`bg-slate-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group ${
                   isVisible[`team-${index}`]
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-80 object-cover"
-                />
+                <div className="overflow-hidden">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-80 object-cover transform transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
                 <div className="p-6 text-center">
                   <h3 className="text-2xl font-bold text-slate-800 mb-2">
                     {member.name}
