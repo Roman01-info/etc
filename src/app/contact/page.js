@@ -112,12 +112,6 @@ export default function Contact() {
                 Home
               </Link>
               <Link
-                href="/#destinations"
-                className="text-slate-700 hover:text-amber-600 transition-colors"
-              >
-                Destinations
-              </Link>
-              <Link
                 href="/services"
                 className="text-slate-700 hover:text-amber-600 transition-colors"
               >
@@ -162,13 +156,6 @@ export default function Contact() {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Home
-                </Link>
-                <Link
-                  href="/#destinations"
-                  className="text-slate-700 hover:text-amber-600 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Destinations
                 </Link>
                 <Link
                   href="/services"
