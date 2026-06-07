@@ -14,6 +14,8 @@ import {
   Globe,
   Shield,
   CreditCard,
+  FileCheck,
+  Users,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -79,6 +81,19 @@ export default function Services() {
         "Dedicated travel advisor",
       ],
     },
+    {
+      icon: FileCheck,
+      title: "Visa Processing",
+      description:
+        "Comprehensive visa assistance for all major destinations. We manage the entire documentation and application process to ensure your travel plans stay on track.",
+      features: [
+        "Tourist & Business visa expert",
+        "Document verification service",
+        "Appointment scheduling assistance",
+        "Visa interview preparation",
+        "Real-time application tracking",
+      ],
+    },
   ];
 
   const additionalServices = [
@@ -87,12 +102,6 @@ export default function Services() {
       title: "Guided Tours",
       description:
         "Expert-led tours to the world's most fascinating destinations with personalized itineraries.",
-    },
-    {
-      icon: Globe,
-      title: "Visa Assistance",
-      description:
-        "Complete visa processing support and documentation guidance for hassle-free travel.",
     },
     {
       icon: Shield,
@@ -105,6 +114,12 @@ export default function Services() {
       title: "Flexible Payment",
       description:
         "Multiple payment options with flexible installment plans to make luxury travel accessible.",
+    },
+    {
+      icon: Users,
+      title: "Group Travel",
+      description:
+        "Specialized planning for large groups, weddings, and corporate team-building trips.",
     },
   ];
 
@@ -289,7 +304,9 @@ export default function Services() {
                         ? "https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?w=800&h=600&fit=crop&q=80"
                         : index === 1
                         ? "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop&q=80"
-                        : "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop&q=80"
+                        : index === 2
+                        ? "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop&q=80"
+                        : "https://images.unsplash.com/photo-1557124816-e9b7d5440de2?w=800&h=600&fit=crop&q=80"
                     }
                     alt={service.title}
                     className="rounded-2xl shadow-2xl w-full h-auto"

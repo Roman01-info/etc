@@ -11,6 +11,7 @@ import {
   ChevronRight,
   Menu,
   X,
+  FileCheck,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -99,6 +100,12 @@ export default function Home() {
       title: "24/7 Support",
       description:
         "Round-the-clock assistance to ensure your journey is seamless from start to finish.",
+    },
+    {
+      icon: FileCheck,
+      title: "Visa Processing",
+      description:
+        "Expert assistance for all types of visa applications with a high success rate.",
     },
   ];
 
@@ -359,7 +366,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
             {services.map((service, index) => (
               <div
                 key={index}
