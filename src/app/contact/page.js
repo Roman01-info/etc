@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Clock, Send, Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Contact() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -91,15 +92,17 @@ export default function Contact() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center">
-              <Link
-                href="/"
-                className="text-xl sm:text-2xl font-bold text-navy-900"
-              >
-                <span className="text-amber-600">ETC</span>
-                <span className="text-slate-800 ml-2 text-sm sm:text-lg font-normal hidden sm:inline">
-                  Elevated Travel Corporation
-                </span>
+            <div className="flex items-center gap-3">
+              <Link href="/" className="flex items-center gap-3">
+                <Image
+                  src="/gallery/etc_main_logo (1).png"
+                  alt="ETC Logo"
+                  width={100}
+                  height={58}
+                  className="h-16 w-auto object-contain"
+                  priority
+                />
+                <h5 className="text-xl font-bold text-slate-800 hidden sm:block">Elevated Travel Corporation</h5>
               </Link>
             </div>
 
@@ -504,10 +507,23 @@ export default function Contact() {
 
       {/* Footer */}
       <footer className="bg-slate-950 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gray-400">
-            &copy; 2026 Elevated Travel Corporation. All rights reserved.
-          </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* IATA Accreditation Section */}
+          <div className="flex flex-col sm:flex-row items-center gap-6 bg-slate-900 rounded-2xl p-6 mb-8 border border-slate-800">
+            <Image
+              src="/gallery/etc_main_logo (3).png"
+              alt="IATA Accredited Agent"
+              width={120}
+              height={70}
+              className="h-16 w-auto object-contain flex-shrink-0"
+            />
+            <p className="text-gray-300 text-sm sm:text-base leading-relaxed text-center sm:text-left">
+              An IATA-accredited agent is a travel agency or professional authorized by the International Air Transport Association to issue airline tickets and access airline systems directly.
+            </p>
+          </div>
+          <div className="border-t border-slate-800 pt-8 text-center text-gray-400">
+            <p>&copy; 2026 Elevated Travel Corporation. All rights reserved.</p>
+          </div>
         </div>
       </footer>
     </div>

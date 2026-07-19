@@ -13,6 +13,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function About() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,14 +68,13 @@ export default function About() {
   const team = [
     {
       name: "Md. Waliul Hasan (Biplob)",
-      role: "Founder & CEO",
+      role: "CEO & OWNER",
       image: "/b-img.png",
     },
     {
-      name: "Michael Chen",
-      role: "Head of Operations",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      name: "Arunima Chowdhury",
+      role: "Chairman",
+      image: "/gallery/chairman.png"
     },
     {
       name: "Emily Rodriguez",
@@ -90,15 +90,17 @@ export default function About() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center">
-              <Link
-                href="/"
-                className="text-xl sm:text-2xl font-bold text-navy-900"
-              >
-                <span className="text-amber-600">ETC</span>
-                <span className="text-slate-800 ml-2 text-sm sm:text-lg font-normal hidden sm:inline">
-                  Elevated Travel Corporation
-                </span>
+            <div className="flex items-center gap-3">
+              <Link href="/" className="flex items-center gap-3">
+                <Image
+                  src="/gallery/etc_main_logo (1).png"
+                  alt="ETC Logo"
+                  width={100}
+                  height={58}
+                  className="h-16 w-auto object-contain"
+                  priority
+                />
+                <h5 className="text-xl font-bold text-slate-800 hidden sm:block">Elevated Travel Corporation</h5>
               </Link>
             </div>
 
@@ -270,21 +272,8 @@ export default function About() {
               <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
                 Our Story
               </h2>
-              <p className="text-lg text-slate-600 mb-4 leading-relaxed">
-                Founded in 2010, Elevated Travel Corporation began with a simple
-                vision: to make luxury travel accessible, personalized, and
-                truly exceptional.
-              </p>
-              <p className="text-lg text-slate-600 mb-4 leading-relaxed">
-                What started as a small boutique agency has grown into a
-                globally recognized travel company, serving thousands of
-                discerning travelers who seek nothing but the best.
-              </p>
-              <p className="text-lg text-slate-600 leading-relaxed">
-                Our commitment to excellence, combined with our deep
-                relationships with premium hotels, airlines, and local
-                experiences, allows us to craft journeys that exceed
-                expectations at every turn.
+              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                We are a good, well respected & leading Travel Agent dealing with high profile customers from home & abroad. We are looking for an opportunity to be associated with you / your esteemed Organization to provide our efficient & smooth service in Travel related matters.
               </p>
             </div>
             <div
@@ -416,19 +405,22 @@ export default function About() {
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Why Choose ETC?
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              The Features of ETC-ELEVATED TRAVEL CORPORATION
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {[
-              "Award-winning customer service excellence",
-              "Best price guarantee on all bookings",
-              "Handpicked luxury hotels and resorts",
-              "Personalized travel itineraries",
-              "Exclusive member-only deals and perks",
-              "24/7 dedicated travel support",
+              "We are one stop solution for all travel related services & logistic support.",
+              "We have computerized Airlines & Hotels reservation system both at home & abroad.",
+              "Excellent & prompt service (door to door service)",
+              "Most competitive Price",
+              "We provide Visa processing service like Thailand, Singapore, Malaysia, Indonesia, Vietnam, Dubai, China, Philippine etc.",
+              "By telephone call is enough to find your tickets on your desk.",
+              "We are highly experienced in expatriates handling & corporate travel.",
+              "We organize Package Tour both inside the country & outside the World.",
+              "Credit facility for reputed & permanent clients.",
             ].map((item, index) => (
               <div
                 key={index}
@@ -457,11 +449,11 @@ export default function About() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-amber-600 to-amber-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Travel with Us?
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Partner With Us For Your Next Journey
           </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Let us create your perfect travel experience today.
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+            So, considering all above, we may kindly be appointed as your official Travel Agent to provide you complete travel related service. Please give us a call for your next trip.
           </p>
           <Link
             href="/contact"
@@ -475,10 +467,23 @@ export default function About() {
 
       {/* Footer */}
       <footer className="bg-slate-950 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gray-400">
-            &copy; 2026 Elevated Travel Corporation. All rights reserved.
-          </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* IATA Accreditation Section */}
+          <div className="flex flex-col sm:flex-row items-center gap-6 bg-slate-900 rounded-2xl p-6 mb-8 border border-slate-800">
+            <Image
+              src="/gallery/etc_main_logo (3).png"
+              alt="IATA Accredited Agent"
+              width={120}
+              height={70}
+              className="h-16 w-auto object-contain flex-shrink-0"
+            />
+            <p className="text-gray-300 text-sm sm:text-base leading-relaxed text-center sm:text-left">
+              An IATA-accredited agent is a travel agency or professional authorized by the International Air Transport Association to issue airline tickets and access airline systems directly.
+            </p>
+          </div>
+          <div className="border-t border-slate-800 pt-8 text-center text-gray-400">
+            <p>&copy; 2026 Elevated Travel Corporation. All rights reserved.</p>
+          </div>
         </div>
       </footer>
     </div>
