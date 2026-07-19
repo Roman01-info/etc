@@ -127,7 +127,7 @@ export default function Home() {
             <div className="flex items-center gap-3">
               <Link href="/" className="flex items-center gap-3">
                 <Image
-                  src="/gallery/etc_main_logo (1).png"
+                  src="/gallery/etc_main_logo.png"
                   alt="ETC Logo"
                   width={100}
                   height={58}
