@@ -1,7 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Mail, Phone, MapPin, Clock, Send, Menu, X } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  Send,
+  Menu,
+  X,
+  BadgeCheck,
+} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -509,17 +518,31 @@ export default function Contact() {
       <footer className="bg-slate-950 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* IATA Accreditation Section */}
-          <div className="flex flex-col sm:flex-row items-center gap-6 bg-slate-900 rounded-2xl p-6 mb-8 border border-slate-800">
-            <Image
-              src="/gallery/etc_main_logo (3).png"
-              alt="IATA Accredited Agent"
-              width={120}
-              height={70}
-              className="h-16 w-auto object-contain flex-shrink-0"
-            />
-            <p className="text-gray-300 text-sm sm:text-base leading-relaxed text-center sm:text-left">
-              An IATA-accredited agent is a travel agency or professional authorized by the International Air Transport Association to issue airline tickets and access airline systems directly.
-            </p>
+          <div className="relative bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-6 sm:p-8 mb-8 border border-slate-700 overflow-hidden">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl"></div>
+            <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 relative z-10">
+              <div className="flex-shrink-0 bg-white/5 border border-slate-700 rounded-2xl p-4 flex items-center justify-center">
+                <Image
+                  src="/gallery/etc_main_logo (3).png"
+                  alt="IATA Accredited Agent"
+                  width={120}
+                  height={70}
+                  className="h-20 w-auto object-contain"
+                />
+              </div>
+              <div className="text-center sm:text-left">
+                <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-400 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
+                  <BadgeCheck size={14} />
+                  IATA Accredited Agent
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+                  Official IATA Accredited Travel Agency
+                </h3>
+                <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                  An IATA-accredited agent is a travel agency or professional authorized by the International Air Transport Association to issue airline tickets and access airline systems directly.
+                </p>
+              </div>
+            </div>
           </div>
           <div className="border-t border-slate-800 pt-8 text-center text-gray-400">
             <p>&copy; 2026 Elevated Travel Corporation. All rights reserved.</p>
