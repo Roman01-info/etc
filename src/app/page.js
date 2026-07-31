@@ -241,7 +241,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-slate-900">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -249,33 +249,118 @@ export default function Home() {
               "url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&h=1080&fit=crop)",
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/60 to-amber-900/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/85 to-slate-900/60"></div>
         </div>
 
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-4 sm:mb-6 animate-fade-in">
-            Elevate Your Journey with{" "}
-            <span className="text-amber-400">ETC</span>
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-12 animate-fade-in-delay">
-            Luxury travel experiences curated just for you.
-          </p>
-          <button
-            onClick={() =>
-              document
-                .getElementById("destinations")
-                .scrollIntoView({ behavior: "smooth" })
-            }
-            className="bg-amber-600 text-white px-6 sm:px-10 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-amber-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-          >
-            Explore Destinations
-            <ChevronRight className="inline ml-2" size={20} />
-          </button>
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Hero Text Content */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 animate-fade-in leading-tight">
+                Elevate Your Journey with{" "}
+                <span className="text-amber-400">ETC</span>
+              </h1>
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-12 animate-fade-in-delay">
+                Luxury travel experiences curated just for you.
+              </p>
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("destinations")
+                    .scrollIntoView({ behavior: "smooth" })
+                }
+                className="bg-amber-600 text-white px-6 sm:px-10 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-amber-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Explore Destinations
+                <ChevronRight className="inline ml-2" size={20} />
+              </button>
+            </div>
+
+            {/* Flying Plane Image */}
+            <div className="relative">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
+                <img
+                  src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&h=650&fit=crop&q=80"
+                  alt="Flying airplane"
+                  className="w-full h-64 sm:h-80 lg:h-[480px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
+              </div>
+
+              {/* Floating Badge - Premium Flights */}
+              <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 bg-white rounded-2xl shadow-xl px-4 sm:px-5 py-3 sm:py-4 flex items-center gap-3 animate-float">
+                <div className="bg-amber-600 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Plane className="text-white" size={20} />
+                </div>
+                <div>
+                  <p className="font-bold text-slate-800 text-sm sm:text-base">Premium Flights</p>
+                  <p className="text-xs text-slate-500">Worldwide coverage</p>
+                </div>
+              </div>
+
+              {/* Floating Badge - Rating */}
+              <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-white rounded-2xl shadow-xl px-4 sm:px-5 py-3 sm:py-4 flex items-center gap-3 animate-float-delay">
+                <div className="bg-slate-800 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Star className="text-amber-400" size={20} fill="currentColor" />
+                </div>
+                <div>
+                  <p className="font-bold text-slate-800 text-sm sm:text-base">4.9 Rated</p>
+                  <p className="text-xs text-slate-500">Trusted travelers</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
             <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-12 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            id="services-header"
+            className={`text-center mb-8 sm:mb-16 transition-all duration-700 ${
+              isVisible["services-header"]
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              Our Services
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto px-4">
+              Comprehensive travel solutions tailored to your every need.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                id={`service-${index}`}
+                className={`bg-gradient-to-br from-slate-50 to-white p-4 sm:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-slate-100 ${
+                  isVisible[`service-${index}`]
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
+                <div className="bg-amber-600 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-4 sm:mb-6 mx-auto">
+                  <service.icon className="text-white" size={24} />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-3 sm:mb-4 text-center">
+                  {service.title}
+                </h3>
+                <p className="text-sm sm:text-base text-slate-600 text-center leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -347,52 +432,6 @@ export default function Home() {
                     Book Now
                   </button>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="py-12 sm:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            id="services-header"
-            className={`text-center mb-8 sm:mb-16 transition-all duration-700 ${
-              isVisible["services-header"]
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Our Services
-            </h2>
-            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto px-4">
-              Comprehensive travel solutions tailored to your every need.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                id={`service-${index}`}
-                className={`bg-gradient-to-br from-slate-50 to-white p-4 sm:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-slate-100 ${
-                  isVisible[`service-${index}`]
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
-                <div className="bg-amber-600 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-4 sm:mb-6 mx-auto">
-                  <service.icon className="text-white" size={24} />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-3 sm:mb-4 text-center">
-                  {service.title}
-                </h3>
-                <p className="text-sm sm:text-base text-slate-600 text-center leading-relaxed">
-                  {service.description}
-                </p>
               </div>
             ))}
           </div>
