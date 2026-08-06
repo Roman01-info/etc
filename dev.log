@@ -1,0 +1,11 @@
+
+> etc-travel@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.110:3000
+✓ Ready in 1004ms
+
+ GET /packages/maldives 200 in 1559ms (next.js: 1251ms, application-code: 308ms)
+ GET /packages/maldives 200 in 354ms (next.js: 27ms, application-code: 327ms)

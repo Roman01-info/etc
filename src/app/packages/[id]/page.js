@@ -15,15 +15,197 @@ import {
   User,
   MessageSquare,
   ChevronRight,
-  BadgeCheck,
+BadgeCheck,
   Plane,
   Shield,
   Tag,
+  Palmtree,
+  Ship,
+  Mountain,
+  Fish,
+  Landmark,
+  Train,
+  Sun,
+  Utensils,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import { destinations, getDestinationById } from "../../data/destinations";
+
+function DayCard({ item, index, Icon, highlightTime }) {
+  return (
+    <div className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-amber-200 transition-all duration-300 overflow-hidden flex flex-col h-full">
+      {/* Image with hover zoom */}
+      <div className="relative h-48 overflow-hidden">
+{item.image ? (
+          <Image
+            src={item.image}
+            alt={item.title}
+            width={400}
+            height={300}
+            loading="lazy"
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
+            <Icon size={48} className="text-white" />
+          </div>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+
+        {/* Day badge */}
+        <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+          <Calendar size={13} />
+          {item.day}
+        </div>
+
+        {/* Activity icon chip */}
+        <div className="absolute bottom-4 left-4 w-10 h-10 rounded-xl bg-white/90 backdrop-blur flex items-center justify-center text-amber-600 shadow-md">
+          <Icon size={20} strokeWidth={2} />
+        </div>
+      </div>
+
+{/* Card body */}
+      <div className="p-6 flex flex-col flex-1">
+        <div className="flex items-center gap-2 mb-2">
+          <span className="text-xs font-bold text-slate-400 uppercase tracking-wide">
+            {highlightTime || `Activity ${index + 1}`}
+          </span>
+          <span className="text-slate-300">•</span>
+          <span className="inline-flex items-center gap-1 text-xs font-medium text-amber-600">
+            <MapPin size={12} />
+            {destinationForIcon(item.icon)}
+          </span>
+        </div>
+        <h4 className="text-xl font-bold text-slate-800 mb-2 group-hover:text-amber-700 transition-colors">
+          {item.title}
+        </h4>
+        <p className="text-slate-600 leading-relaxed text-sm flex-1">
+          {item.description}
+        </p>
+
+{/* Day highlights */}
+        {item.highlights && item.highlights.length > 0 && (
+          <ul className="mt-4 space-y-2 border-t border-slate-100 pt-4">
+            {item.highlights.map((h, i) => (
+              <li
+                key={i}
+                className="flex items-start gap-2 text-sm text-slate-700"
+              >
+                <CheckCircle
+                  className="text-green-600 mt-0.5 flex-shrink-0"
+                  size={16}
+                />
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function DayAccordion({ item, index, Icon, highlightTime, isOpen, onToggle }) {
+  return (
+    <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden transition-all duration-300">
+      {/* Accordion header */}
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center gap-4 p-4 text-left hover:bg-slate-50 transition-colors"
+      >
+        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-white flex flex-col items-center justify-center shadow-md flex-shrink-0">
+          <Icon size={18} strokeWidth={2} />
+          <span className="text-[10px] font-bold leading-none mt-0.5">
+            {index + 1}
+          </span>
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-bold text-amber-600 uppercase tracking-wide">
+              {item.day}
+            </span>
+            <span className="text-xs text-slate-400">
+              {highlightTime || `Activity ${index + 1}`}
+            </span>
+          </div>
+          <h4 className="text-base font-bold text-slate-800 truncate">
+            {item.title}
+          </h4>
+        </div>
+        <ChevronRight
+          size={20}
+          className={`text-amber-600 flex-shrink-0 transition-transform duration-300 ${
+            isOpen ? "rotate-90" : ""
+          }`}
+        />
+      </button>
+
+      {/* Accordion body */}
+      {isOpen && (
+        <div className="px-4 pb-4">
+          <div className="h-40 rounded-xl overflow-hidden mb-4">
+            {item.image ? (
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={400}
+                height={300}
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div className="w-full h-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
+                <Icon size={40} className="text-white" />
+              </div>
+            )}
+          </div>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="inline-flex items-center gap-1 text-xs font-medium text-amber-600">
+              <MapPin size={12} />
+              {destinationForIcon(item.icon)}
+            </span>
+          </div>
+          <p className="text-slate-600 leading-relaxed text-sm mb-3">
+            {item.description}
+          </p>
+          {item.highlights && item.highlights.length > 0 && (
+            <ul className="space-y-2 border-t border-slate-100 pt-3">
+              {item.highlights.map((h, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-2 text-sm text-slate-700"
+                >
+                  <CheckCircle
+                    className="text-green-600 mt-0.5 flex-shrink-0"
+                    size={16}
+                  />
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function destinationForIcon(icon) {
+  const map = {
+    plane: "Travel",
+    palmtree: "Beach",
+    ship: "Cruise",
+    fish: "Reef",
+    mountain: "Alps",
+    landmark: "City",
+    train: "Rail",
+    sun: "Sunset",
+    utensils: "Dining",
+  };
+  return map[icon] || "Location";
+}
 
 export default function PackageDetails() {
   const params = useParams();
@@ -38,9 +220,32 @@ export default function PackageDetails() {
     travelers: "2",
     message: "",
   });
-  const [confirmed, setConfirmed] = useState(false);
+const [confirmed, setConfirmed] = useState(false);
+  const [openDay, setOpenDay] = useState(0);
 
-  const destination = getDestinationById(params.id);
+const destination = getDestinationById(params.id);
+
+const iconMap = {
+    plane: Plane,
+    palmtree: Palmtree,
+    ship: Ship,
+    fish: Fish,
+    mountain: Mountain,
+    landmark: Landmark,
+    train: Train,
+    sun: Sun,
+    utensils: Utensils,
+  };
+
+  const highlightTimes = [
+    "Morning",
+    "Morning",
+    "Afternoon",
+    "Evening",
+    "Morning",
+    "Afternoon",
+    "Evening",
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -394,29 +599,65 @@ export default function PackageDetails() {
                     : "opacity-0 translate-y-10"
                 }`}
               >
-                <h3 className="text-2xl font-bold text-slate-800 mb-6">
-                  Detailed Itinerary
-                </h3>
-                <div className="relative border-l-2 border-amber-600 ml-4 space-y-8">
-                  {destination.itinerary.map((item, index) => (
-                    <div key={index} className="ml-8 relative">
-                      <div className="absolute -left-[41px] top-1 bg-amber-600 w-5 h-5 rounded-full border-4 border-white shadow"></div>
-                      <div className="bg-white rounded-xl p-5 border border-slate-100 shadow-sm">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Calendar className="text-amber-600" size={18} />
-                          <span className="font-bold text-amber-600">
-                            {item.day}
-                          </span>
-                        </div>
-                        <h4 className="text-lg font-bold text-slate-800 mb-2">
-                          {item.title}
-                        </h4>
-                        <p className="text-slate-600 leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
+<div className="flex items-center gap-3 mb-8">
+                  <h3 className="text-2xl font-bold text-slate-800">
+                    Detailed Itinerary
+                  </h3>
+                  <span className="bg-amber-100 text-amber-700 text-xs font-semibold px-3 py-1 rounded-full">
+                    {destination.itinerary.length} Days
+                  </span>
+                </div>
+<div className="relative">
+                  {/* Accordion (mobile & tablet) */}
+                  <div className="lg:hidden space-y-3">
+                    {destination.itinerary.map((item, index) => {
+                      const Icon = iconMap[item.icon] || Plane;
+                      return (
+                        <DayAccordion
+                          key={index}
+                          item={item}
+                          index={index}
+                          Icon={Icon}
+                          highlightTime={highlightTimes[index]}
+                          isOpen={openDay === index}
+                          onToggle={() =>
+                            setOpenDay(openDay === index ? null : index)
+                          }
+                        />
+                      );
+                    })}
+                  </div>
+
+                  {/* Card grid (desktop) */}
+                  <div className="hidden lg:grid grid-cols-2 gap-8">
+                    {destination.itinerary.map((item, index) => {
+                      const Icon = iconMap[item.icon] || Plane;
+                      return (
+                        <DayCard
+                          key={index}
+                          item={item}
+                          index={index}
+                          Icon={Icon}
+                          highlightTime={highlightTimes[index]}
+                        />
+                      );
+                    })}
+                  </div>
+
+                  {/* Single CTA for the itinerary section */}
+                  <div className="mt-10 text-center">
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center justify-center gap-2 bg-amber-600 text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-amber-700 hover:scale-105 transition-all duration-300 shadow-xl shadow-amber-200"
+                    >
+                      Book This Package Now
+                      <ChevronRight size={20} />
+                    </Link>
+                    <p className="mt-3 text-sm text-slate-500">
+                      Free consultation — our experts will craft your perfect
+                      itinerary.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
