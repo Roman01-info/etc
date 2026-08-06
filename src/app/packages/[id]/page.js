@@ -68,9 +68,9 @@ function DayCard({ item, index, Icon, highlightTime }) {
 
 {/* Card body */}
       <div className="p-6 flex flex-col flex-1">
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-xs font-bold text-slate-400 uppercase tracking-wide">
-            {highlightTime || `Activity ${index + 1}`}
+<div className="flex items-center gap-2 mb-2">
+          <span className="text-sm font-semibold text-slate-600">
+            {timeLabel(highlightTime)}
           </span>
           <span className="text-slate-300">•</span>
           <span className="inline-flex items-center gap-1 text-xs font-medium text-amber-600">
@@ -122,12 +122,12 @@ function DayAccordion({ item, index, Icon, highlightTime, isOpen, onToggle }) {
           </span>
         </div>
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2">
+<div className="flex items-center gap-2">
             <span className="text-xs font-bold text-amber-600 uppercase tracking-wide">
               {item.day}
             </span>
-            <span className="text-xs text-slate-400">
-              {highlightTime || `Activity ${index + 1}`}
+            <span className="text-sm font-semibold text-slate-600">
+              {timeLabel(highlightTime)}
             </span>
           </div>
           <h4 className="text-base font-bold text-slate-800 truncate">
@@ -190,6 +190,15 @@ function DayAccordion({ item, index, Icon, highlightTime, isOpen, onToggle }) {
       )}
     </div>
   );
+}
+
+function timeLabel(time) {
+  const map = {
+    Morning: "🌅 Morning",
+    Afternoon: "☀️ Afternoon",
+    Evening: "🌇 Evening",
+  };
+  return map[time] || "🕐 " + (time || "Activity");
 }
 
 function destinationForIcon(icon) {

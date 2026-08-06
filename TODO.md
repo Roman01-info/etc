@@ -14,3 +14,16 @@
 - [x] Add `loading="lazy"` to all `next/image` itinerary images for lazy loading
 - [x] Desktop: keep 2-column card grid with hover effects
 - [x] Verify /packages/maldives renders (HTTP 200, no errors)
+
+## Feedback Round 2 (Time labels)
+- [x] Replace confusing "MORNING Travel"/"MORNING Reef" labels with emoji time labels:
+  - 🌅 Morning
+  - ☀️ Afternoon
+  - 🌇 Evening
+- [x] Applied via `timeLabel()` helper in both DayCard and DayAccordion
+- [x] Verify /packages/maldives renders (HTTP 200, no errors)
+
+## Feedback Round 3 (Favicon)
+- [x] Replace default favicon with ETC Travel BD logo (`/gallery/etc_main_logo.png`)
+- [x] Updated `metadata.icons` in `src/app/layout.js` (icon, shortcut, apple)
+- [x] Verify favicon served (HTTP 200, image/png)

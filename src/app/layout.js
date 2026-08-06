@@ -12,8 +12,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "ETC - Elevated Travel Corporation | Luxury Travel Agency",
+    title: "ETC - Elevated Travel Corporation | Luxury Travel Agency  | etc travel bd",
   description: "Comprehensive travel solutions tailored to your every need. Expert visa processing, luxury hotels, and premium flight bookings worldwide.",
+  icons: {
+    icon: "/gallery/etc_main_logo.png",
+    shortcut: "/gallery/etc_main_logo.png",
+    apple: "/gallery/etc_main_logo.png",
+  },
 };
 
 export default function RootLayout({ children }) {
