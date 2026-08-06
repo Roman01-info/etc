@@ -27,3 +27,9 @@
 - [x] Replace default favicon with ETC Travel BD logo (`/gallery/etc_main_logo.png`)
 - [x] Updated `metadata.icons` in `src/app/layout.js` (icon, shortcut, apple)
 - [x] Verify favicon served (HTTP 200, image/png)
+
+## Feedback Round 4 (Google Map on Contact page)
+- [x] Replace placeholder box in "Visit Our Office" with a real embedded Google Map iframe
+- [x] Location: Hotel InterContinental Dhaka, 119 Kazi Nazrul Islam Avenue, Dhaka-1000
+- [x] Uses `output=embed` (no API key required), lazy loading
+- [x] Verify /contact renders (HTTP 200, map iframe present)

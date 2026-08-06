@@ -408,12 +408,17 @@ export default function Contact() {
                 <h2 className="text-3xl font-bold text-slate-800 mb-6">
                   Visit Our Office
                 </h2>
-                <div className="bg-slate-200 rounded-xl h-80 mb-6 flex items-center justify-center">
-                  <div className="text-center text-slate-600">
-                    <MapPin size={48} className="mx-auto mb-4 text-amber-600" />
-                    <p className="text-lg font-semibold">Hotel InterContinental Dhaka</p>
-                    <p>Building # 3, (2nd Floor), 119 Kazi Nazrul Islam Avenue, Dhaka-1000</p>
-                  </div>
+<div className="rounded-xl overflow-hidden h-80 mb-6 shadow-inner">
+                  <iframe
+                    src="https://maps.google.com/maps?q=Hotel%20InterContinental%20Dhaka%2C%20119%20Kazi%20Nazrul%20Islam%20Avenue%2C%20Dhaka-1000&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={false}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="ETC Travel BD Office Location - Hotel InterContinental Dhaka"
+                  ></iframe>
                 </div>
                 <div className="space-y-4">
                   <h3 className="text-xl font-bold text-slate-800">
