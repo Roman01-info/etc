@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { destinations } from "./data/destinations";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,48 +42,13 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  const handleBookNow = (destination) => {
-    alert("Booking feature coming soon!");
-  };
-
-  const handleSubscribe = (e) => {
+const handleSubscribe = (e) => {
     e.preventDefault();
     if (email) {
       alert("Thank you for subscribing to our newsletter!");
       setEmail("");
     }
   };
-
-  const destinations = [
-    {
-      name: "Maldives",
-      price: "$1,299",
-      image:
-        "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop&q=80",
-      rating: 4.9,
-    },
-    {
-      name: "Switzerland",
-      price: "$1,599",
-      image:
-        "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&h=600&fit=crop",
-      rating: 4.8,
-    },
-    {
-      name: "Japan",
-      price: "$1,199",
-      image:
-        "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&h=600&fit=crop",
-      rating: 4.9,
-    },
-    {
-      name: "Greece",
-      price: "$999",
-      image:
-        "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&h=600&fit=crop",
-      rating: 4.7,
-    },
-  ];
 
   const services = [
     {
@@ -171,8 +137,8 @@ export default function Home() {
               >
                 Gallery
               </Link>
-              <Link
-                href="/contact"
+<Link
+                href={`/packages/${destinations[0].id}`}
                 className="bg-amber-600 text-white px-6 py-2 rounded-full hover:bg-amber-700 transition-colors"
               >
                 Book Now
@@ -228,8 +194,8 @@ export default function Home() {
                 >
                   Gallery
                 </Link>
-                <Link
-                  href="/contact"
+<Link
+                  href={`/packages/${destinations[0].id}`}
                   className="bg-amber-600 text-white px-6 py-2 rounded-full hover:bg-amber-700 transition-colors w-full"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -426,12 +392,12 @@ export default function Home() {
                   <p className="text-xs sm:text-sm text-slate-600 mb-3 sm:mb-4">
                     per person, all inclusive
                   </p>
-                  <button
-                    onClick={() => handleBookNow(dest.name)}
-                    className="w-full bg-slate-800 text-white py-2 sm:py-3 rounded-lg hover:bg-amber-600 transition-colors duration-300 font-semibold text-sm sm:text-base"
+<Link
+                    href={`/packages/${dest.id}`}
+                    className="w-full bg-slate-800 text-white py-2 sm:py-3 rounded-lg hover:bg-amber-600 transition-colors duration-300 font-semibold text-sm sm:text-base text-center block"
                   >
                     Book Now
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
